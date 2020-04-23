@@ -18,13 +18,15 @@ app.post("/api/notes", function (req, res) {
     var note = req.body;
     note.id = data.length;
     data.push(note);
+    assignIds();
     fs.writeFile("./db/db.json", JSON.stringify(data), function (err) {
         if (err) return console.log(err);
     });
 });
 
 app.delete("/api/notes/:id", function (req, res) {
-    data.splice(req.params.id, 1);
+    data.splice(req.params.id - 1, 1);
+    assignIds();
     fs.writeFile("./db/db.json", JSON.stringify(data), function (err) {
         if (err) return console.log(err);
     });
@@ -40,3 +42,11 @@ app.get("*", function (req, res) {
 app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
 });
+
+function assignIds() {
+  let i=1;
+  data.forEach(element => {
+    element.id = i;
+    i++;
+  });
+}

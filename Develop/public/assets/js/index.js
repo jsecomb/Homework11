@@ -60,6 +60,9 @@ var handleNoteSave = function() {
     getAndRenderNotes();
     renderActiveNote();
   });
+
+  $noteTitle.val("");
+  $noteText.val("");
 };
 
 // Delete the clicked note
