@@ -2,13 +2,13 @@ var express = require("express");
 var path = require("path");
 var fs = require("fs");
 var data = require("./db/db.json");
-//var index = require("./public/assets/js/index.js");
 
 var app = express();
 var PORT = 4500;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'));
 
 app.get("/api/notes", function (req, res) {
     return res.json(data);
@@ -24,7 +24,7 @@ app.post("/api/notes", function (req, res) {
 });
 
 app.delete("/api/notes/:id", function (req, res) {
-    notesArray.splice(req.params.id, 1);
+    data.splice(req.params.id, 1);
     fs.writeFile("./db/db.json", JSON.stringify(data), function (err) {
         if (err) return console.log(err);
     });
