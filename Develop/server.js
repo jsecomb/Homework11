@@ -4,7 +4,7 @@ var fs = require("fs");
 var data = require("./db/db.json");
 
 var app = express();
-var PORT = 4500;
+var PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,6 +34,9 @@ app.delete("/api/notes/:id", function (req, res) {
 
 app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "public", "notes.html"));
+  });
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
   });
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "public", "index.html"));
