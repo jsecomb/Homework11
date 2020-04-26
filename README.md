@@ -1,12 +1,14 @@
 # homework11 by Julian Secomb 
 
+# Note Taker App
+
 [![HitCount](http://hits.dwyl.com/{jsecomb}/{homework11}.svg)](http://hits.dwyl.com/{jsecomb}/{homework11})
 ![GitHub top language](https://img.shields.io/github/languages/top/jsecomb/homework11?style=flat-square)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jsecomb/homework11?style=flat-square)
 
 ## Description: 
 
-This applicaiton allows the user to make, store and delte notes using express get, post and delete routes. The app is deployed on Heroku [here](https://polar-citadel-48203.herokuapp.com).
+This applicaiton allows the user to make, store and delete notes using express get, post and delete routes. The app is deployed on Heroku [here](https://polar-citadel-48203.herokuapp.com).
 
 ---
 
